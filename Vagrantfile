@@ -10,4 +10,7 @@ Vagrant.configure("2") do |config|
     vb.memory = "4096"
     vb.cpus = "2"
   end
+  config.vm.network "private_network", ip: "192.168.56.10"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  
 end
