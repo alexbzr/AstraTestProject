@@ -19,7 +19,7 @@
           services:
             prometheus:                 
               build:
-                context: ./prometheus
+                context: /tmp/prometheus
                 dockerfile: Dockerfile
               container_name: prometheus
               hostname: prom
