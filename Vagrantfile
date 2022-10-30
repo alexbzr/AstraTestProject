@@ -15,6 +15,9 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "192.168.56.10"
   config.vm.network "forwarded_port", guest: 3000, host: 3000
   
+  # загрузить необходимые файлы в vagrant vm для докера
+  config.vm.synced_folder "prometheus", "/tmp/prometheus"
+  
   # использовать ansible для дальнейшей настройки из файла playbook.yaml
   config.vm.provision "ansible" do |ans|
     ans.playbook = "playbook.yaml"
