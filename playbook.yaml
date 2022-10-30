@@ -18,7 +18,9 @@
               driver: bridge
           services:
             prometheus:                 
-              image: "prom/prometheus:latest"
+              build:
+                context: ./prometheus
+                dockerfile: Dockerfile
               container_name: prometheus
               hostname: prom
               networks: 
