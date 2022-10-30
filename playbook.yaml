@@ -2,7 +2,7 @@
   hosts: all
   become: yes
   tasks:
-    - name: install modules
+    - name: install modules # установка необходимых пакетов
       apt:
         pkg:
           - docker
@@ -15,18 +15,18 @@
           version: "3.7"
           networks:
             local:
-              driver: bridge
+              driver: bridge # настройка сетевого адаптера для контейнеров
           services:
             prometheus:                 
               build:
-                context: /tmp/prometheus
+                context: /tmp/prometheus # директория для Dokerfile, переданная в Vagrantfile
                 dockerfile: Dockerfile
               container_name: prometheus
               hostname: prom
               networks: 
                 - local
               ports:
-                - "9090:9090"
+                - "9090:9090" # прокинуть порт для Prometheus
             grafana: 
               image: "grafana/grafana:latest"
               container_name: grafana
@@ -34,6 +34,6 @@
               networks: 
                 - local
               ports:
-                - "3000:3000"
+                - "3000:3000" # прокинуть порт для web Grafana
               volumes:
-                - /tmp/grafana:/etc/grafana/provisioning
+                - /tmp/grafana:/etc/grafana/provisioning # директория для настроек Grafana, переданная в Vagrantfile
