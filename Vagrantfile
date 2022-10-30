@@ -17,6 +17,7 @@ Vagrant.configure("2") do |config|
   
   # загрузить необходимые файлы в vagrant vm для докера
   config.vm.synced_folder "prometheus", "/tmp/prometheus"
+  config.vm.synced_folder "grafana", "/tmp/grafana"
   
   # использовать ansible для дальнейшей настройки из файла playbook.yaml
   config.vm.provision "ansible" do |ans|
