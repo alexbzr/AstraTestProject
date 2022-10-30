@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s # настройка обновлений каждые 15с
+  evaluation_interval: 15s 
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["172.17.0.1:9100"] # адрес хоста, с которого собираются данные node-exporter
