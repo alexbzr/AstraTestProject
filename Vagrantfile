@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
     vb.name = "ubuntu-ansible"
     # не проверять наличие дополнений гостевой ОС, чтобы не было ошибок
 	vb.check_guest_additions = false
-    vb.memory = "1536"
+    vb.memory = "2048"
     vb.cpus = "2"
   end
   # задать IP адрес машины и пробросить порт 3000 на хост для будущей графаны
